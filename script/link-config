@@ -23,13 +23,13 @@ if [[ ! -f ${FILE} ]]; then
     exit 1
 else
   DESTINATION_DIR=${NGINX_HOME}/servers
-  mkdir -p $DESTINATION_DIR
-  ln -fs ${FILE} $DESTINATION_DIR/$(basename "$FILE")
+  sudo mkdir -p $DESTINATION_DIR
+  sudo ln -fs ${FILE} $DESTINATION_DIR/$(basename "$FILE")
 fi
 
 # remove file (or symlink) from legacy `sites-enabled` directory if it exists
 MAYBE_OLD_FILE=${NGINX_HOME}/sites-enabled/$(basename "$FILE")
 
 if [[ -f "$MAYBE_OLD_FILE" ]] || [[ -L "$MAYBE_OLD_FILE" ]]; then
-  rm ${MAYBE_OLD_FILE}
+  sudo rm ${MAYBE_OLD_FILE}
 fi

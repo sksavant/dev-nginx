@@ -24,6 +24,8 @@ FileUtils.mkdir_p(dest_dir)
 
 dest = File.join(dest_dir, "#{name}.conf")
 
+value = `sudo touch #{dest} && sudo chmod 666 #{dest}`
+
 file = File.open(dest, 'w') do |file|
 
     config['mappings'].each do |mapping|

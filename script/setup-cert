@@ -52,7 +52,7 @@ mkdir -p ${CERT_DIRECTORY}
 mkcert -key-file=${KEY_FILE} -cert-file=${CERT_FILE} ${DOMAIN}
 
 echo -e "Symlinking the certificate for nginx at ${NGINX_HOME}"
-ln -sf ${KEY_FILE} ${NGINX_HOME}/${DOMAIN}.key
-ln -sf ${CERT_FILE} ${NGINX_HOME}/${DOMAIN}.crt
+sudo ln -sf ${KEY_FILE} ${NGINX_HOME}/${DOMAIN}.key
+sudo ln -sf ${CERT_FILE} ${NGINX_HOME}/${DOMAIN}.crt
 
 echo -e "🚀 ${YELLOW}Done. Please restart nginx.${NC}"
